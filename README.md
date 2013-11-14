@@ -1,4 +1,1 @@
-about
-=====
-
-All about me on Github.
+[All about me on Github](http://andrelion.github.io/about)
