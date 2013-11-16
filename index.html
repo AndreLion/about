@@ -1,92 +1,227 @@
 <!doctype html>
-<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
-<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8">
+	<title>About</title>
+	<meta name="description" content="All about me on Github.">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<style>
+		body { background:#fefefe url(assets/bg.png) repeat 0 0 scroll; }
+		.glyphicon { color:#666;margin-right:5px; }
+		.box { font-family: "Helvetica Nenu",Hevetica,Arial,sans-serif;background-color:#DDD;border-radius:5px;margin:40px 20px;box-shadow:-5px -4px 25px rgba(0, 0, 0, 0.3); }
+		.box .inner{ background: #fff;padding: 30px;border-radius:5px;box-shadow: inset 0 2px 0 #999;margin:0;border-left:none; }
+		#tpl-wrap { display:none; }
+		.quote { width:350px;position:relative; }
+		.quote blockquote{ position: relative; }
+		.quote blockquote:after, 
+		.quote blockquote:before  { top: 100%;border: solid transparent;content: " ";height: 0;width: 0;position: absolute;pointer-events: none; }
+		.quote blockquote:after  { border-top-color: #ffffff;border-width: 10px;left: 65%;margin-left: -10px; }
+		.quote blockquote:before { border-top-color: rgba(0,0,0,0.01);border-width: 11px;left: 65%;margin-left: -11px; }
+		.quote blockquote p { font-family:serif;font-size: 24px;color: #b4b4b4;font-weight: 400;line-height: 40px;font-style: italic;text-indent: 100px;position: relative; }
+		.quote blockquote p:before{ content: '\201C';font-family: serif;font-style: normal;font-weight: 700;position: absolute;font-size: 175px;top: 0px;left: -105px;color: #444;text-shadow: 7px 14px 10px rgba(0, 0, 0, 0.1); }
+		.quote .mb-attribution { text-align: right;padding: 20px 100px 20px 20px;position: relative; }
+		.quote .mb-thumb { display: block;width: 70px;height: 70px;border: 5px solid #fff;border-radius: 50%;background: url(https://github.global.ssl.fastly.net/images/icons/emoji/octocat.png) no-repeat center 2px;position: absolute;right: 10px;bottom: 5px;box-shadow:inset 1px 1px 4px rgba(0,0,0,0.5),0 2px 3px rgba(0,0,0,0.6); }
+		.quote .mb-author{ font-family: 'Alegreya SC', serif;font-weight: 700;font-size: 18px;color:#444;text-shadow: 0 1px 1px rgba(255,255,255,0.7); }
+		.quote cite a{ font-family: serif;font-weight: 700;font-style: italic;color: #FFF;text-shadow: 0 1px 1px rgba(0,0,0,0.3); }
+		.quote cite a:hover{ color:#444;text-shadow: 0 1px 1px rgba(255,255,255,0.7); }
 
-  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
-  <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript" src="javascripts/script.js"></script>
+		.namecard { width:500px; }
+		.namecard .detail>span,
+		.namecard .detail>a { margin-left:20px;margin-bottom:5px; }
+		.namecard .detail .follow { float:right; }
+		.namecard .detail .glyphicon { color:#666; }
+		.namecard .name { font-weight:bold;font-size:26px; }
+		.namecard a.login { margin-left:0; }
+		.namecard .company { display:block; }
+		.namecard .location { display:block; }
+		.namecard .email { display:block; }
+		.namecard .blog { display:block; }
+		.namecard .created_at { display:block; }
+		.namecard .created_at .text:before { content:'Joined on '; }
+		.namecard .hireable { margin:30px -30px -30px; }
+		.namecard .hireable div { background-color:#DDD;border-radius:0 0 5px 5px;padding:5px 10px;font-size:12px;color:#666; }
+		.namecard .static { margin-top:20px; }
+		.namecard .static>div { border-right:1px solid #DDD; }
+		.namecard .static>div:last-child { border-right:none; }
+		.namecard .static span { display:block;padding:0 10px;font-size:18px; }
+		.namecard .static strong { display:block;color:#999;padding:0 10px;}
 
-  <title>About</title>
-  <meta name="description" content="All about me on Github.">
-
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-
+		.repocard { float:left; }
+		.repocard .inner { padding-top:40px; }
+		.repocard .action { float:right;margin-right:10px;margin-top:15px; }
+		.repocard .action span { padding-left:3px; }
+		.repocard .name { font-size:26px; }
+		.repocard .description { max-width:500px; }
+		.repocard .language { margin-left:3px;font-size:12px;color:#666; }
+		.repocard .language:before { content:' in '; }
+		.repocard .homepage a { display:inline-block;max-width:250px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:sub; }
+		.repocard .created_at { color:#666;margin-top:15px; }
+		.repocard .updated_at { color:#666; }
+	</style>
 </head>
-
 <body>
-
-  <div class="wrapper">
-    <header>
-      <h1 class="title">About</h1>
-    </header>
-    <div id="container">
-      <p class="tagline">All about me on Github.</p>
-      <div id="main" role="main">
-        <div class="download-bar">
-        <div class="inner">
-          <a href="https://github.com/AndreLion/about/tarball/master" class="download-button tar"><span>Download</span></a>
-          <a href="https://github.com/AndreLion/about/zipball/master" class="download-button zip"><span>Download</span></a>
-          <a href="https://github.com/AndreLion/about" class="code">View About on GitHub</a>
-        </div>
-        <span class="blc"></span><span class="trc"></span>
-        </div>
-        <article class="markdown-body">
-          <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-        </article>
-      </div>
-    </div>
-    <footer>
-      <div class="owner">
-      <p><a href="https://github.com/AndreLion" class="avatar"><img src="https://0.gravatar.com/avatar/9247d47faca3e2557b4e9bf23050c832?d=https%3A%2F%2Fidenticons.github.com%2Fc65564492b959c0d214ebf7d38dbde31.png&amp;r=x&amp;s=60" width="48" height="48"/></a> <a href="https://github.com/AndreLion">AndreLion</a> maintains <a href="https://github.com/AndreLion/about">About</a></p>
-
-
-      </div>
-      <div class="creds">
-        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br/>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
-      </div>
-    </footer>
-  </div>
-  <div class="current-section">
-    <a href="#top">Scroll to top</a>
-    <a href="https://github.com/AndreLion/about/tarball/master" class="tar">tar</a><a href="https://github.com/AndreLion/about/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
-    <p class="name"></p>
-  </div>
-
-  
+	<div class="content"></div>
+	<div id="tpl-wrap">
+		<div class="quote box item">
+			<blockquote class="inner" cite="https://api.github.com/zen"><p></p></blockquote>
+			<div class="mb-attribution">
+				<p class="mb-author">Dr. Octocat</p>
+				<cite><a href="http://developer.github.com/guides/getting-started/">Zen of Github</a></cite>
+				<div class="mb-thumb"></div>
+			</div>
+		</div>
+		<div class="namecard box item">
+			<div class="inner">
+				<div class="row">
+					<div class="col-md-2">
+						<img class="avatar" />
+					</div>
+					<div class="col-md-10 detail">
+						<a href="#" class="btn btn-default follow" role="button">Follow</a>
+						<span class="name"></span>
+						( <a class="login"></a> )
+						<span class="company"><span class="glyphicon glyphicon-briefcase"></span><span class="text"></span></span>
+						<span class="location"><span class="glyphicon glyphicon-map-marker"></span><span class="text"></span></span>
+						<a class="blog"><span class="glyphicon glyphicon-globe"></span><span class="text"></span></a>
+						<a class="email"><span class="glyphicon glyphicon-envelope"></span><span class="text"></span></a>
+						<span class="created_at"><span class="glyphicon glyphicon-log-in"></span><span class="text"></span></span>
+					</div>
+				</div>
+				<div class="row static">
+					<div class="col-md-3">
+						<span class="followers"></span>
+						<strong>Followers</strong>
+					</div>
+					<div class="col-md-3">
+						<span class="following"></span>
+						<strong>Following</strong>
+					</div>
+					<div class="col-md-3">
+						<span class="public_repos"></span>
+						<strong>Repos</strong>
+					</div>
+					<div class="col-md-3">
+						<span class="public_gists"></span>
+						<strong>Gists</strong>
+					</div>
+				</div>
+				<div class="row hireable">
+					<div class="col-md-12">
+						Now Available For Hire
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="repocard box item">
+			<a href="#" class="btn btn-default btn-xs fork action" role="button">Fork<span class="forks_count"></span></a>
+			<a href="#" class="btn btn-default btn-xs star action" role="button">Star<span class="stargazers_count"></span></a>
+			<a href="#" class="btn btn-default btn-xs watch action" role="button">Watch<span class="watchers_count"></span></a>
+			<div class="inner">
+				<div>
+					<a class="name html_url"></a>
+					<span class="language"></span>
+				</div>
+				<div class="homepage"><span class="glyphicon glyphicon-globe"></span><a></a></div>
+				<div class="description"></div>
+				<div class="created_at"><span class="text"></span> created.</div>
+				<div class="updated_at"><span class="text"></span> last updated.</div>
+				<span class="fork"></span>
+			</div>
+		</div>
+	</div>
+	<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.2.js"></script>
+	<script src="js/packery.pkgd.min.js"></script>
+	<script>
+		var username = 'andrelion';
+		var GITHUB_CALLBACK = {};
+		GITHUB_CALLBACK._zen = function(quote){
+			console.log(quote);
+			var node = $('#tpl-wrap .quote').clone();
+			node.find('blockquote p').text(quote)
+			node.appendTo('body>.content');
+		};
+		GITHUB_CALLBACK['_users_'+username]= function(user){
+			console.log(user);
+			var node = $('#tpl-wrap .namecard').clone();
+			var joined = new Date(user.created_at);
+			node.find('.avatar').attr('src',user.avatar_url);
+			node.find('.name').text(user.name);
+			node.find('.login').text('@'+user.login).attr('href',user.html_url);
+			node.find('.follow').attr('href',user.html_url);
+			if(user.company){
+				node.find('.company .text').text(user.company);
+			}else{
+				node.find('.company').remove();
+			}
+			if(user.location){
+				node.find('.location .text').text(user.location);
+			}else{
+				node.find('.location').remove();
+			}
+			if(user.email){
+				node.find('.email').attr('href','mailto:'+user.email).find('.text').text(user.email);
+			}else{
+				node.find('.email').remove();
+			}
+			if(user.blog){
+				node.find('.blog').attr('href',user.blog).find('.text').text(user.blog);
+			}else{
+				node.find('.blog').remove();
+			}
+			if(!user.hireable){
+				node.find('.hireable').remove();
+			}
+			node.find('.created_at .text').text(joined.toLocaleDateString());
+			node.find('.followers').text(user.followers);
+			node.find('.following').text(user.following);
+			node.find('.public_repos').text(user.public_repos);
+			node.find('.public_gists').text(user.public_gists);
+			node.appendTo('body>.content');
+			getScript('/users/'+username+'/repos');
+		};
+		GITHUB_CALLBACK['_users_'+username+'_repos']= function(repos){
+			console.log(repos);
+			$.each(repos,function(index,repo){
+				var node = $('#tpl-wrap .repocard').clone();
+				var created = new Date(repo.created_at);
+				var updated = new Date(repo.updated_at);
+				node.find('.name').text(repo.name);
+				node.find('.created_at .text').text(created.toLocaleDateString());
+				if(repo.description){
+					node.find('.description').text(repo.description);
+				}else{
+					node.find('.description').remove();
+				}
+				console.log(repo.fork);
+				node.find('.forks_count').text(repo.forks_count);
+				node.find('.html_url').attr('href',repo.html_url);
+				if(repo.homepage){
+					node.find('.homepage a').attr('href',repo.homepage).text(repo.homepage);
+				}else{
+					node.find('.homepage').remove();
+				}
+				node.find('.stargazers_count').text(repo.stargazers_count);
+				node.find('.updated_at .text').text(updated.toLocaleDateString());
+				node.find('.watchers_count').text(repo.watchers_count);
+				if(repo.language){
+					node.find('.language').text(repo.language);
+				}else{
+					node.find('.language').remove();
+				}
+				node.appendTo('body>.content');
+			});
+			$('.content').packery({
+				gutter: 0
+			});
+		};
+		var getScript = function(api){
+			$.getScript('http://api.github.huamiaoyu.com/?'+api);
+		};
+		$(function(){
+			getScript('/zen');
+			getScript('/users/'+username);
+		});
+	</script>
 </body>
 </html>
