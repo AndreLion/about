@@ -61,5 +61,5 @@ body { background:#fefefe url(../assets/bg.png) repeat 0 0 scroll; }
 
 
 /*----------------------------------------*/
-.repo-facebook-weibo-login { width:600px; }
+.repo-facebook-weibo-login { width:600px !important; }
 .repo-facebook-weibo-login .image { width:250px; }

@@ -67,8 +67,8 @@ GITHUB_CALLBACK['_users_'+username]= function(resp){
 	h = node.height();
 	w = node.width();
 	$('#tpl-wrap .repocard').css({
-		height:h
-		//width:w/2
+		height:h,
+		width:w/2
 	});
 	getScript('/users/'+username+'/repos');
 };
