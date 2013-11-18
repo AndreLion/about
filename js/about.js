@@ -1,9 +1,11 @@
+_USER_DEFINE_ = _USER_DEFINE_ || {};
 var apiDomain = 'https://api.github.com';
 var username;
 if(location.hostname.indexOf('github.io') !== -1){
 	username = location.hostname.split('.')[0];
 }else{
-	username = 'weierophinney';
+	//username = 'weierophinney';
+	username = 'andrelion';
 }
 var GITHUB_CALLBACK = {};
 var h,w;
@@ -12,15 +14,16 @@ var log = function(s){
 		console.log(s);
 	}catch(e){}
 };
+var exceeded = false;
 var token = {
 	client_id:'4bccbd5abfef19bed28b',
 	client_secret:'bda9c33b0b06a0b3fa4b326992e8c89658d76947'
 }
+var repos = [];
 GITHUB_CALLBACK['_users_'+username]= function(resp){
 	if(resp.meta.status === 403){
-		getScript('/users/'+username,{
-			hasToken:true
-		});
+		exceeded = true;
+		getScript('/users/'+username);
 		return true;
 	}
 	var user = resp.data;
@@ -28,7 +31,7 @@ GITHUB_CALLBACK['_users_'+username]= function(resp){
 	var node = $('#tpl-wrap .namecard').clone();
 	var joined = new Date(user.created_at);
 	node.find('.avatar').attr('src',user.avatar_url);
-	node.find('.name').text(user.name);
+	node.find('.name').text(user.name || user.login);
 	node.find('.login').attr('href',user.html_url);
 	node.find('.follow').attr('href',user.html_url);
 	if(user.company){
@@ -71,17 +74,32 @@ GITHUB_CALLBACK['_users_'+username]= function(resp){
 };
 GITHUB_CALLBACK['_users_'+username+'_repos']= function(resp){
 	if(resp.meta.status === 403){
-		getScript('/users/'+username+'/repos',{
-			hasToken:true
-		});
+		exceeded = true;
+		getScript('/users/'+username+'/repos');
 		return true;
 	}
-	var repos = resp.data;
+	repos = repos.concat(resp.data);
+	if(resp.meta.Link && resp.meta.Link[0][1].rel === 'next'){
+		getScript(resp.meta.Link[0][0],{
+			full:true
+		});
+	}else{
+		renderRepos();
+	}
+};
+
+var renderRepos = function(){
 	log(repos);
 	var i,l,
 		threshold = -1,
 		score,scores = [],
 		forks,stars,watchers;
+	if(!repos.length){
+		var node = $('#tpl-wrap .norepo').clone();
+		node.appendTo('body>.content');
+		node.find('.name').text($('.content .namecard .name').text());
+		$('.content').packery('appended',node);
+	}
 	for(i=0,l=repos.length;i<l;i++){
 		forks = repos[i].forks_count;
 		stars = repos[i].stargazers_count;
@@ -127,8 +145,11 @@ GITHUB_CALLBACK['_users_'+username+'_repos']= function(resp){
 		if(repo.fork){
 			node.addClass('forked');
 		}
-		if(repo.score >= threshold){
+		if(threshold !== -1 && repo.score >= threshold){
 			node.addClass('proud').find('.description').addClass('lead');
+		}
+		if(_USER_DEFINE_.recommend && _USER_DEFINE_.recommend[repo.name]){
+			node.addClass('recommend');
 		}
 		node.appendTo('body>.content');
 		var name = node.find('.repo-name');
@@ -149,21 +170,21 @@ GITHUB_CALLBACK['_users_'+username+'_repos']= function(resp){
 		$('.content').packery('appended',node);
 	});
 };
-var getScript = function(api,obj){
-	obj = obj || {};
+var getScript = function(api,cfg){
+	cfg = cfg || {};
 	$.ajax({
-		url:apiDomain+api+'?callback=GITHUB_CALLBACK.'+api.replace(/\//g,'_'),
+		url:cfg.full?api:(apiDomain+api+'?callback=GITHUB_CALLBACK.'+api.replace(/\//g,'_')),
 		dataType:'script',
-		data:$.extend({per_page:100},(obj.hasToken?token:{}))
+		data:$.extend({per_page:100},(exceeded?token:{}))
 	});
 };
 
-var getZen = function(hasToken){
+var getZen = function(){
 	$.ajax({
 		url:apiDomain+'/zen',
 		cache:false,
 		type:'get',
-		data:hasToken?token:null,
+		data:exceeded?token:null,
 		success:function(resp){
 			var quote = resp;
 			log(quote);
@@ -171,17 +192,18 @@ var getZen = function(hasToken){
 			node.find('blockquote p').text(quote)
 			node.appendTo('body>.content');
 			$('.content').packery('appended',node);
-			if(!hasToken){
+			if(!exceeded){
 				getScript('/users/'+username);
 			}
 		},
 		error:function(xhr,type,err){
 			if(xhr.status === 403){
-				getZen(true);
+				exceeded = true;
+				getZen();
 			}
 		},
 		complete:function(){
-			if(hasToken){
+			if(exceeded){
 				getScript('/users/'+username);
 			}
 		}

@@ -1,0 +1,6 @@
+var _USER_DEFINE_ = {
+	recommend : {
+		'css-number-scroll' : true,
+		'html5-localstorage-manager' : true
+	}
+}

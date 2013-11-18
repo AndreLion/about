@@ -52,3 +52,8 @@ body { background:#fefefe url(../assets/bg.png) repeat 0 0 scroll; }
 .repocard .created_at { color:#666;margin-top:15px; }
 .repocard .updated_at { color:#666; }
 .repocard.proud .name { font-size:38px; }
+.repocard .rcmd { display:none; }
+.repocard.recommend .rcmd { display:block; }
+
+.norepo { font-size:18px; }
+.norepo img { width:160px;height:160px;display:inline-block; }
