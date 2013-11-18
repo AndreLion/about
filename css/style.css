@@ -18,12 +18,12 @@ body { background:#fefefe url(../assets/bg.png) repeat 0 0 scroll; }
 .quote cite a:hover{ color:#444;text-shadow: 0 1px 1px rgba(255,255,255,0.7); }
 
 .namecard { width:500px; }
+.namecard .follow { margin: 10px 0 0 10px; }
+.namecard .detail { min-height:145px; }
 .namecard .detail>span,
 .namecard .detail>a { margin-left:20px;margin-bottom:5px; }
-.namecard .detail .follow { float:right; }
 .namecard .detail .glyphicon { color:#666; }
-.namecard .name { font-weight:bold;font-size:26px; }
-.namecard a.login { margin-left:0; }
+.namecard a.name { font-weight:bold;font-size:26px;display:inline-block;margin-bottom:15px; }
 .namecard .company { display:block; }
 .namecard .location { display:block; }
 .namecard .email { display:block; }

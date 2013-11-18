@@ -1,5 +1,10 @@
 var apiDomain = 'https://api.github.com';
-var username = location.hostname.split('.')[0];
+var username;
+if(location.hostname.indexOf('github.io') !== -1){
+	username = location.hostname.split('.')[0];
+}else{
+	username = 'weierophinney';
+}
 var GITHUB_CALLBACK = {};
 var h,w;
 var log = function(s){
@@ -24,7 +29,7 @@ GITHUB_CALLBACK['_users_'+username]= function(resp){
 	var joined = new Date(user.created_at);
 	node.find('.avatar').attr('src',user.avatar_url);
 	node.find('.name').text(user.name);
-	node.find('.login').text('@'+user.login).attr('href',user.html_url);
+	node.find('.login').attr('href',user.html_url);
 	node.find('.follow').attr('href',user.html_url);
 	if(user.company){
 		node.find('.company .text').text(user.company);
@@ -88,10 +93,12 @@ GITHUB_CALLBACK['_users_'+username+'_repos']= function(resp){
 		}
 	}
 	scores.sort(function(x,y){return y-x;});
-	if(scores.length >= 3){
-		threshold = scores[parseInt(scores.length*0.382,10)-1];
+	if(scores.length >= 10){
+		//threshold = scores[parseInt(scores.length*0.382,10)-1];
+		threshold = scores[2];
 	}
 	$.each(repos,function(index,repo){
+		var maxtry = 6;
 		var node = $('#tpl-wrap .repocard').clone();
 		var created = new Date(repo.created_at);
 		var updated = new Date(repo.updated_at);
@@ -125,16 +132,19 @@ GITHUB_CALLBACK['_users_'+username+'_repos']= function(resp){
 		}
 		node.appendTo('body>.content');
 		var name = node.find('.repo-name');
-		while(name.height()>parseInt(name.css('line-height'))){
+		while(maxtry && name.height()>parseInt(name.css('line-height'))){
 			node.css('width','+=50');
+			maxtry--;
 		}
 		var homepage = node.find('.homepage');
-		while(homepage.height()>parseInt(homepage.css('line-height'))){
+		while(maxtry && homepage.height()>parseInt(homepage.css('line-height'))){
 			node.css('width','+=50');
+			maxtry--;
 		}
 		var inner = node.find('.inner');
-		while(inner.outerHeight()-10>node.height()){
+		while(maxtry && inner.outerHeight()-10>node.height()){
 			node.css('width','+=50');
+			maxtry--;
 		}
 		$('.content').packery('appended',node);
 	});
@@ -144,7 +154,7 @@ var getScript = function(api,obj){
 	$.ajax({
 		url:apiDomain+api+'?callback=GITHUB_CALLBACK.'+api.replace(/\//g,'_'),
 		dataType:'script',
-		data:obj.hasToken?token:{}
+		data:$.extend({per_page:100},(obj.hasToken?token:{}))
 	});
 };
 
@@ -153,7 +163,7 @@ var getZen = function(hasToken){
 		url:apiDomain+'/zen',
 		cache:false,
 		type:'get',
-		data:hasToken?token:{},
+		data:hasToken?token:null,
 		success:function(resp){
 			var quote = resp;
 			log(quote);
