@@ -1,0 +1,54 @@
+body { background:#fefefe url(../assets/bg.png) repeat 0 0 scroll; }
+.glyphicon { color:#666;margin-right:5px; }
+.box { font-family: "Helvetica Nenu",Hevetica,Arial,sans-serif;background-color:#DDD;border-radius:5px;margin:40px 20px;box-shadow:-5px -4px 25px rgba(0, 0, 0, 0.3); }
+.box .inner{ background: #fff;padding: 30px;border-radius:5px;box-shadow: inset 0 2px 0 #999;margin:0;border-left:none; }
+#tpl-wrap { display:none; }
+.quote { width:350px;position:relative; }
+.quote blockquote{ position: relative; }
+.quote blockquote:after, 
+.quote blockquote:before  { top: 100%;border: solid transparent;content: " ";height: 0;width: 0;position: absolute;pointer-events: none; }
+.quote blockquote:after  { border-top-color: #ffffff;border-width: 10px;left: 65%;margin-left: 65px; }
+.quote blockquote:before { border-top-color: rgba(0,0,0,0.01);border-width: 11px;left: 65%;margin-left: -11px; }
+.quote blockquote p { font-family:serif;font-size: 24px;color: #b4b4b4;font-weight: 400;line-height: 40px;font-style: italic;position: relative;padding-top:10px;text-indent:100px; }
+.quote blockquote p:before{ content: '\201C';font-family: serif;font-style: normal;font-weight: 700;position: absolute;font-size: 175px;top:0;left:-105px;color: #444;text-shadow: 7px 14px 10px rgba(0, 0, 0, 0.1); }
+.quote .mb-attribution { text-align: right;padding: 20px 100px 20px 20px;position: relative; }
+.quote .mb-thumb { display: block;width: 70px;height: 70px;border: 5px solid #fff;border-radius: 50%;background: url(https://github.global.ssl.fastly.net/images/icons/emoji/octocat.png) no-repeat center 2px;position: absolute;right: 10px;bottom: 5px;box-shadow:inset 1px 1px 4px rgba(0,0,0,0.5),0 2px 3px rgba(0,0,0,0.6); }
+.quote .mb-author{ font-family: 'Alegreya SC', serif;font-weight: 700;font-size: 18px;color:#444;text-shadow: 0 1px 1px rgba(255,255,255,0.7); }
+.quote cite a{ font-family: serif;font-weight: 700;font-style: italic;color: #FFF;text-shadow: 0 1px 1px rgba(0,0,0,0.3); }
+.quote cite a:hover{ color:#444;text-shadow: 0 1px 1px rgba(255,255,255,0.7); }
+
+.namecard { width:500px; }
+.namecard .detail>span,
+.namecard .detail>a { margin-left:20px;margin-bottom:5px; }
+.namecard .detail .follow { float:right; }
+.namecard .detail .glyphicon { color:#666; }
+.namecard .name { font-weight:bold;font-size:26px; }
+.namecard a.login { margin-left:0; }
+.namecard .company { display:block; }
+.namecard .location { display:block; }
+.namecard .email { display:block; }
+.namecard .blog { display:block; }
+.namecard .created_at { display:block; }
+.namecard .created_at .text:before { content:'Joined on '; }
+.namecard .hireable { margin:30px -30px -30px; }
+.namecard .hireable div { background-color:#DDD;border-radius:0 0 5px 5px;padding:5px 10px;font-size:12px;color:#666; }
+.namecard .static { margin-top:20px; }
+.namecard .static>div { border-right:1px solid #DDD; }
+.namecard .static>div:last-child { border-right:none; }
+.namecard .static span { display:block;padding:0 10px;font-size:18px; }
+.namecard .static strong { display:block;color:#999;padding:0 10px;}
+
+.repocard { float:left;background-color:#FFF;overflow:hidden; }
+.repocard.forked:before { -webkit-transform:rotate(-45deg);content:'Forked';position:absolute;top:14px;background-color:#fd9419;padding:0 25px;left:-24px;color:#FFF;border:2px solid #fbe26e; }
+.repocard .inner { padding-top:40px; }
+.repocard .action { float:right;margin-right:10px;margin-top:15px; }
+.repocard .action span { padding-left:3px; }
+.repocard .name { font-size:26px; }
+.repocard .description { max-width:500px; }
+.repocard .language { margin-left:3px;font-size:12px;color:#666; }
+.repocard .language:before { content:' in '; }
+.repocard hr { margin-top:10px; }
+.repocard .homepage a { display:inline-block;max-width:250px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:sub; }
+.repocard .created_at { color:#666;margin-top:15px; }
+.repocard .updated_at { color:#666; }
+.repocard.proud .name { font-size:38px; }

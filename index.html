@@ -6,60 +6,7 @@
 	<meta name="description" content="All about me on Github.">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-	<style>
-		body { background:#fefefe url(assets/bg.png) repeat 0 0 scroll; }
-		.glyphicon { color:#666;margin-right:5px; }
-		.box { font-family: "Helvetica Nenu",Hevetica,Arial,sans-serif;background-color:#DDD;border-radius:5px;margin:40px 20px;box-shadow:-5px -4px 25px rgba(0, 0, 0, 0.3); }
-		.box .inner{ background: #fff;padding: 30px;border-radius:5px;box-shadow: inset 0 2px 0 #999;margin:0;border-left:none; }
-		#tpl-wrap { display:none; }
-		.quote { width:350px;position:relative; }
-		.quote blockquote{ position: relative; }
-		.quote blockquote:after, 
-		.quote blockquote:before  { top: 100%;border: solid transparent;content: " ";height: 0;width: 0;position: absolute;pointer-events: none; }
-		.quote blockquote:after  { border-top-color: #ffffff;border-width: 10px;left: 65%;margin-left: 65px; }
-		.quote blockquote:before { border-top-color: rgba(0,0,0,0.01);border-width: 11px;left: 65%;margin-left: -11px; }
-		.quote blockquote p { font-family:serif;font-size: 24px;color: #b4b4b4;font-weight: 400;line-height: 40px;font-style: italic;position: relative;padding-top:10px;text-indent:100px; }
-		.quote blockquote p:before{ content: '\201C';font-family: serif;font-style: normal;font-weight: 700;position: absolute;font-size: 175px;top:0;left:-105px;color: #444;text-shadow: 7px 14px 10px rgba(0, 0, 0, 0.1); }
-		.quote .mb-attribution { text-align: right;padding: 20px 100px 20px 20px;position: relative; }
-		.quote .mb-thumb { display: block;width: 70px;height: 70px;border: 5px solid #fff;border-radius: 50%;background: url(https://github.global.ssl.fastly.net/images/icons/emoji/octocat.png) no-repeat center 2px;position: absolute;right: 10px;bottom: 5px;box-shadow:inset 1px 1px 4px rgba(0,0,0,0.5),0 2px 3px rgba(0,0,0,0.6); }
-		.quote .mb-author{ font-family: 'Alegreya SC', serif;font-weight: 700;font-size: 18px;color:#444;text-shadow: 0 1px 1px rgba(255,255,255,0.7); }
-		.quote cite a{ font-family: serif;font-weight: 700;font-style: italic;color: #FFF;text-shadow: 0 1px 1px rgba(0,0,0,0.3); }
-		.quote cite a:hover{ color:#444;text-shadow: 0 1px 1px rgba(255,255,255,0.7); }
-
-		.namecard { width:500px; }
-		.namecard .detail>span,
-		.namecard .detail>a { margin-left:20px;margin-bottom:5px; }
-		.namecard .detail .follow { float:right; }
-		.namecard .detail .glyphicon { color:#666; }
-		.namecard .name { font-weight:bold;font-size:26px; }
-		.namecard a.login { margin-left:0; }
-		.namecard .company { display:block; }
-		.namecard .location { display:block; }
-		.namecard .email { display:inline-block; }
-		.namecard .blog { display:inline-block; }
-		.namecard .created_at { display:block; }
-		.namecard .created_at .text:before { content:'Joined on '; }
-		.namecard .hireable { margin:30px -30px -30px; }
-		.namecard .hireable div { background-color:#DDD;border-radius:0 0 5px 5px;padding:5px 10px;font-size:12px;color:#666; }
-		.namecard .static { margin-top:20px; }
-		.namecard .static>div { border-right:1px solid #DDD; }
-		.namecard .static>div:last-child { border-right:none; }
-		.namecard .static span { display:block;padding:0 10px;font-size:18px; }
-		.namecard .static strong { display:block;color:#999;padding:0 10px;}
-
-		.repocard { float:left;background-color:#FFF;overflow:hidden; }
-		.repocard.forked:before { -webkit-transform:rotate(-45deg);content:'Forked';position:absolute;top:14px;background-color:#fd9419;padding:0 25px;left:-24px;color:#FFF;border:2px solid #fbe26e; }
-		.repocard .inner { padding-top:40px; }
-		.repocard .action { float:right;margin-right:10px;margin-top:15px; }
-		.repocard .action span { padding-left:3px; }
-		.repocard .name { font-size:26px; }
-		.repocard .description { max-width:500px; }
-		.repocard .language { margin-left:3px;font-size:12px;color:#666; }
-		.repocard .language:before { content:' in '; }
-		.repocard .homepage a { display:inline-block;max-width:250px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:sub; }
-		.repocard .created_at { color:#666;margin-top:15px; }
-		.repocard .updated_at { color:#666; }
-	</style>
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<div class="content"></div>
@@ -119,12 +66,13 @@
 			<a href="#" class="btn btn-default btn-xs star action html_url" role="button">Star<span class="stargazers_count"></span></a>
 			<a href="#" class="btn btn-default btn-xs watch action html_url" role="button">Watch<span class="watchers_count"></span></a>
 			<div class="inner">
-				<div class="repo-name">
+				<span class="repo-name">
 					<a class="name html_url"></a>
 					<span class="language"></span>
-				</div>
-				<div class="homepage"><span class="glyphicon glyphicon-globe"></span><a></a></div>
-				<div class="description"></div>
+				</span>
+				<hr />
+				<span class="homepage"><span class="glyphicon glyphicon-globe"></span><a></a></span>
+				<p class="description"></p>
 				<div class="created_at"><span class="text"></span> created.</div>
 				<div class="updated_at"><span class="text"></span> last updated.</div>
 			</div>
@@ -132,116 +80,6 @@
 	</div>
 	<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.2.js"></script>
 	<script src="js/packery.pkgd.min.js"></script>
-	<script>
-		var username = 'andrelion';
-		var GITHUB_CALLBACK = {};
-		var h,w;
-		GITHUB_CALLBACK._zen = function(quote){
-			console.log(quote);
-			var node = $('#tpl-wrap .quote').clone();
-			node.find('blockquote p').text(quote)
-			node.appendTo('body>.content');
-			$('.content').packery('appended',node);
-			getScript('/users/'+username);
-		};
-		GITHUB_CALLBACK['_users_'+username]= function(user){
-			console.log(user);
-			var node = $('#tpl-wrap .namecard').clone();
-			var joined = new Date(user.created_at);
-			node.find('.avatar').attr('src',user.avatar_url);
-			node.find('.name').text(user.name);
-			node.find('.login').text('@'+user.login).attr('href',user.html_url);
-			node.find('.follow').attr('href',user.html_url);
-			if(user.company){
-				node.find('.company .text').text(user.company);
-			}else{
-				node.find('.company').remove();
-			}
-			if(user.location){
-				node.find('.location .text').text(user.location);
-			}else{
-				node.find('.location').remove();
-			}
-			if(user.email){
-				node.find('.email').attr('href','mailto:'+user.email).find('.text').text(user.email);
-			}else{
-				node.find('.email').remove();
-			}
-			if(user.blog){
-				node.find('.blog').attr('href',user.blog).find('.text').text(user.blog);
-			}else{
-				node.find('.blog').remove();
-			}
-			if(!user.hireable){
-				node.find('.hireable').remove();
-			}
-			node.find('.created_at .text').text(joined.toLocaleDateString());
-			node.find('.followers').text(user.followers);
-			node.find('.following').text(user.following);
-			node.find('.public_repos').text(user.public_repos);
-			node.find('.public_gists').text(user.public_gists);
-			node.appendTo('body>.content');
-			$('.content').packery('appended',node);
-			h = node.height();
-			w = node.width();
-			$('#tpl-wrap .repocard').css({
-				height:h,
-				width:w/2
-			});
-			getScript('/users/'+username+'/repos');
-		};
-		GITHUB_CALLBACK['_users_'+username+'_repos']= function(repos){
-			console.log(repos);
-			$.each(repos,function(index,repo){
-				var node = $('#tpl-wrap .repocard').clone();
-				var created = new Date(repo.created_at);
-				var updated = new Date(repo.updated_at);
-				node.find('.name').text(repo.name);
-				node.find('.created_at .text').text(created.toLocaleDateString());
-				if(repo.description){
-					node.find('.description').text(repo.description);
-				}else{
-					node.find('.description').remove();
-				}
-				node.find('.forks_count').text(repo.forks_count);
-				node.find('.html_url').attr('href',repo.html_url);
-				if(repo.homepage){
-					node.find('.homepage a').attr('href',repo.homepage).text(repo.homepage);
-				}else{
-					node.find('.homepage').remove();
-				}
-				node.find('.stargazers_count').text(repo.stargazers_count);
-				node.find('.updated_at .text').text(updated.toLocaleDateString());
-				node.find('.watchers_count').text(repo.watchers_count);
-				if(repo.language){
-					node.find('.language').text(repo.language);
-				}else{
-					node.find('.language').remove();
-				}
-				if(repo.fork){
-					node.addClass('forked');
-				}
-				node.appendTo('body>.content');
-				var name = node.find('.repo-name');
-				while(name.height()>50){
-					node.css('width','+=50');
-				}
-				var homepage = node.find('.homepage');
-				while(homepage.height()>30){
-					node.css('width','+=50');
-				}
-				$('.content').packery('appended',node);
-			});
-		};
-		var getScript = function(api){
-			$.getScript('http://api.github.huamiaoyu.com/?'+api);
-		};
-		$(function(){
-			$('.content').packery({
-				gutter: 0
-			});
-			getScript('/zen');
-		});
-	</script>
+	<script src="js/about.js"></script>
 </body>
 </html>
