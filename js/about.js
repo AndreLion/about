@@ -198,19 +198,12 @@ var getZen = function(){
 			node.find('blockquote p').text(quote)
 			node.appendTo('body>.content');
 			$('.content').packery('appended',node);
-			if(!exceeded){
-				getScript('/users/'+username);
-			}
+			getScript('/users/'+username);
 		},
 		error:function(xhr,type,err){
 			if(xhr.status === 403){
 				exceeded = true;
 				getZen();
-			}
-		},
-		complete:function(){
-			if(exceeded){
-				getScript('/users/'+username);
 			}
 		}
 	});
@@ -220,5 +213,5 @@ $(function(){
 	$('.content').packery({
 		gutter: 0
 	});
-	getZen(false);
+	getZen();
 });
