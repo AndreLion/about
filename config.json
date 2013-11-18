@@ -2,5 +2,9 @@ var _USER_DEFINE_ = {
 	recommend : {
 		'css-number-scroll' : true,
 		'html5-localstorage-manager' : true
+	},
+	image : {
+		'html5-localstorage-manager' : 'http://andrelion.github.io/html5-localstorage-manager/images/localstorage.png',
+		'facebook-weibo-login' : 'https://raw.github.com/AndreLion/facebook-weibo-login/master/screenshot.png'
 	}
 }

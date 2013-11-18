@@ -67,8 +67,8 @@ GITHUB_CALLBACK['_users_'+username]= function(resp){
 	h = node.height();
 	w = node.width();
 	$('#tpl-wrap .repocard').css({
-		height:h,
-		width:w/2
+		height:h
+		//width:w/2
 	});
 	getScript('/users/'+username+'/repos');
 };
@@ -120,6 +120,7 @@ var renderRepos = function(){
 		var node = $('#tpl-wrap .repocard').clone();
 		var created = new Date(repo.created_at);
 		var updated = new Date(repo.updated_at);
+		node.addClass('repo-'+repo.name);
 		node.find('.name').text(repo.name);
 		node.find('.created_at .text').text(created.toLocaleDateString());
 		if(repo.description){
@@ -150,6 +151,11 @@ var renderRepos = function(){
 		}
 		if(_USER_DEFINE_.recommend && _USER_DEFINE_.recommend[repo.name]){
 			node.addClass('recommend');
+		}
+		if(_USER_DEFINE_.image && _USER_DEFINE_.image[repo.name]){
+			node.find('.image').attr('src',_USER_DEFINE_.image[repo.name]);
+		}else{
+			node.find('.image').remove();
 		}
 		node.appendTo('body>.content');
 		var name = node.find('.repo-name');

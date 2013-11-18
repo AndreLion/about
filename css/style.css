@@ -39,12 +39,13 @@ body { background:#fefefe url(../assets/bg.png) repeat 0 0 scroll; }
 .namecard .static strong { display:block;color:#999;padding:0 10px;}
 
 .repocard { float:left;background-color:#FFF;overflow:hidden; }
-.repocard.forked:before { -webkit-transform:rotate(-45deg);content:'Forked';position:absolute;top:14px;background-color:#fd9419;padding:0 25px;left:-24px;color:#FFF;border:2px solid #fbe26e; }
+.repocard.forked:before { -webkit-transform:rotate(-45deg);content:'Forked';position:absolute;top:14px;background-color:#fd9419;padding:0 25px;left:-24px;color:#FFF;border:2px solid #fbe26e;box-shadow:0px 1px 5px #CCC; }
 .repocard .inner { padding-top:40px; }
 .repocard .action { float:right;margin-right:10px;margin-top:15px; }
 .repocard .action span { padding-left:3px; }
 .repocard .name { font-size:26px; }
 .repocard .description { max-width:500px; }
+.repocard .image { float:left;margin-right:10px; }
 .repocard .language { margin-left:3px;font-size:12px;color:#666; }
 .repocard .language:before { content:' in '; }
 .repocard hr { margin-top:10px; }
@@ -57,3 +58,8 @@ body { background:#fefefe url(../assets/bg.png) repeat 0 0 scroll; }
 
 .norepo { font-size:18px; }
 .norepo img { width:160px;height:160px;display:inline-block; }
+
+
+/*----------------------------------------*/
+.repo-facebook-weibo-login { width:600px; }
+.repo-facebook-weibo-login .image { width:250px; }
