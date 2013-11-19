@@ -70,6 +70,9 @@ GITHUB_CALLBACK['_users_'+username]= function(resp){
 		height:h,
 		width:w/2
 	});
+	$('#progress').css({
+		width:'66%'
+	});
 	getScript('/users/'+username+'/repos');
 };
 GITHUB_CALLBACK['_users_'+username+'_repos']= function(resp){
@@ -174,6 +177,12 @@ var renderRepos = function(){
 			maxtry--;
 		}
 		$('.content').packery('appended',node);
+		$('#progress').css({
+			width:'100%'
+		});
+		setTimeout(function(){
+			$('#progress').remove();
+		},1000);
 	});
 };
 var getScript = function(api,cfg){
@@ -198,6 +207,10 @@ var getZen = function(){
 			node.find('blockquote p').text(quote)
 			node.appendTo('body>.content');
 			$('.content').packery('appended',node);
+			$('#progress').css('visibility','visible');
+			$('#progress').css({
+				width:'33%'
+			});
 			getScript('/users/'+username);
 		},
 		error:function(xhr,type,err){

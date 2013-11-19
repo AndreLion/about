@@ -2,6 +2,10 @@ body { background:#fefefe url(../assets/bg.png) repeat 0 0 scroll; }
 .glyphicon { color:#666;margin-right:5px; }
 .box { font-family: "Helvetica Nenu",Hevetica,Arial,sans-serif;background-color:#DDD;border-radius:5px;margin:40px 20px;box-shadow:-5px -4px 25px rgba(0, 0, 0, 0.3); }
 .box .inner{ background: #fff;padding: 30px;border-radius:5px;box-shadow: inset 0 2px 0 #999;margin:0;border-left:none; }
+
+#progress { position:absolute;top:0;left:0;height:2px;width:0;background-color:#4387FD;transition:width 0.5s ease-in;visibility:hidden; }
+#progress div { margin-left:99.9%;height:100%;width:1px;background-color:#4387FD;border-radius: 15px;box-shadow: 0px 0px 15px 5px rgba(67, 135, 253, 0.75); }
+
 #tpl-wrap { display:none; }
 .quote { width:350px;position:relative; }
 .quote blockquote{ position: relative; }
@@ -63,3 +67,6 @@ body { background:#fefefe url(../assets/bg.png) repeat 0 0 scroll; }
 /*----------------------------------------*/
 .repo-facebook-weibo-login { width:600px !important; }
 .repo-facebook-weibo-login .image { width:250px; }
+.repo-css-number-scroll { width:400px !important; }
+.repo-css-number-scroll .image { height:60px;width:199px; }
+.repo-css-number-scroll .homepage { display:block;margin-top:87px; }
