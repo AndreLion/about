@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Preview About</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<style>
+		html, body, iframe { margin:0;padding:0;height:100%;width:100%;border:none; }
+		form { padding:20px 40px; }
+	</style>
+</head>
+<body>
+	<form class="form-inline" role="form" action="http://127.0.0.1:8964/github/about/" target="f">
+		<div class="form-group">
+			<input type="text" class="form-control" name="gid" placeholder="Your Github User ID">
+		</div>
+		<button type="submit" class="btn btn-primary btn-large" id="preview">Preview</button>
+	</form>
+	<iframe id="f" src="blank.html" ></iframe>
+</body>
+</html>

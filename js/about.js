@@ -1,7 +1,14 @@
 _USER_DEFINE_ = _USER_DEFINE_ || {};
 var apiDomain = 'https://api.github.com';
 var username;
-if(location.hostname.indexOf('github.io') !== -1){
+var ploc = window.parent.location;
+var preview = false;
+if(location.href !== ploc.href && 
+	(ploc.hostname.indexOf('github.io') !== -1 || ploc.port === "8964") && 
+	location.search.indexOf('?gid=') === 0 ){
+	username = location.search.substr(5);
+	preview = true;
+}else if(location.hostname.indexOf('github.io') !== -1){
 	username = location.hostname.split('.')[0];
 }else{
 	//username = 'weierophinney';
@@ -91,6 +98,29 @@ GITHUB_CALLBACK['_users_'+username+'_repos']= function(resp){
 	}
 };
 
+var renderZen = function(quote){
+	log(quote);
+	var node = $('#tpl-wrap .quote').clone();
+	node.find('blockquote p').html(quote)
+	node.appendTo('body>.content');
+	$('.content').packery('appended',node);
+	$('#progress').css({
+		width:'40%'
+	});
+};
+
+var renderAbout = function(){
+	var node = $('#tpl-wrap .about').clone();
+	node.appendTo('body>.content');
+	$('.content').packery('appended',node);
+	$('#progress').css({
+		width:'100%'
+	});
+	setTimeout(function(){
+		$('#progress').remove();
+	},1000);
+};
+
 var renderRepos = function(){
 	log(repos);
 	var i,l,
@@ -177,13 +207,11 @@ var renderRepos = function(){
 			maxtry--;
 		}
 		$('.content').packery('appended',node);
-		$('#progress').css({
-			width:'100%'
-		});
-		setTimeout(function(){
-			$('#progress').remove();
-		},1000);
 	});
+	$('#progress').css({
+		width:'90%'
+	});
+	renderAbout();
 };
 var getScript = function(api,cfg){
 	cfg = cfg || {};
@@ -202,14 +230,7 @@ var getZen = function(){
 		data:exceeded?token:null,
 		success:function(resp){
 			var quote = resp;
-			log(quote);
-			var node = $('#tpl-wrap .quote').clone();
-			node.find('blockquote p').text(quote)
-			node.appendTo('body>.content');
-			$('.content').packery('appended',node);
-			$('#progress').css({
-				width:'40%'
-			});
+			renderZen(quote);
 			getScript('/users/'+username);
 		},
 		error:function(xhr,type,err){
