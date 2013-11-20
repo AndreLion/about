@@ -71,7 +71,7 @@ GITHUB_CALLBACK['_users_'+username]= function(resp){
 		width:w/2
 	});
 	$('#progress').css({
-		width:'66%'
+		width:'60%'
 	});
 	getScript('/users/'+username+'/repos');
 };
@@ -207,9 +207,8 @@ var getZen = function(){
 			node.find('blockquote p').text(quote)
 			node.appendTo('body>.content');
 			$('.content').packery('appended',node);
-			$('#progress').css('visibility','visible');
 			$('#progress').css({
-				width:'33%'
+				width:'40%'
 			});
 			getScript('/users/'+username);
 		},

@@ -15,7 +15,7 @@
 			<blockquote class="inner" cite="https://api.github.com/zen"><p></p></blockquote>
 			<div class="mb-attribution">
 				<p class="mb-author">Dr. Octocat</p>
-				<cite><a href="http://developer.github.com/guides/getting-started/">Zen of Github</a></cite>
+				<cite><a target="blank" href="http://developer.github.com/guides/getting-started/">Zen of Github</a></cite>
 				<div class="mb-thumb"></div>
 			</div>
 		</div>
@@ -24,14 +24,14 @@
 				<div class="row">
 					<div class="col-md-2">
 						<img class="avatar" width="80" height="80"/>
-						<a href="#" class="btn btn-sm btn-default follow" role="button">Follow</a>
+						<a target="blank" href="#" class="btn btn-sm btn-default follow" role="button">Follow</a>
 					</div>
 					<div class="col-md-10 detail">
-						<a class="name login"></a>
+						<a target="blank" class="name login"></a>
 						<span class="company"><span class="glyphicon glyphicon-briefcase"></span><span class="text"></span></span>
 						<span class="location"><span class="glyphicon glyphicon-map-marker"></span><span class="text"></span></span>
-						<a class="blog"><span class="glyphicon glyphicon-link"></span><span class="text"></span></a>
-						<a class="email"><span class="glyphicon glyphicon-envelope"></span><span class="text"></span></a>
+						<a target="blank" class="blog"><span class="glyphicon glyphicon-link"></span><span class="text"></span></a>
+						<a target="blank" class="email"><span class="glyphicon glyphicon-envelope"></span><span class="text"></span></a>
 						<span class="created_at"><span class="glyphicon glyphicon-log-in"></span><span class="text"></span></span>
 					</div>
 				</div>
@@ -61,18 +61,18 @@
 			</div>
 		</div>
 		<div class="repocard box item">
-			<a href="#" class="btn btn-default btn-xs fork action html_url" role="button">Fork<span class="forks_count"></span></a>
-			<a href="#" class="btn btn-default btn-xs star action html_url" role="button">Star<span class="stargazers_count"></span></a>
-			<a href="#" class="btn btn-default btn-xs watch action html_url" role="button">Watch<span class="watchers_count"></span></a>
+			<a target="blank" href="#" class="btn btn-default btn-xs fork action html_url" role="button">Fork<span class="forks_count"></span></a>
+			<a target="blank" href="#" class="btn btn-default btn-xs star action html_url" role="button">Star<span class="stargazers_count"></span></a>
+			<a target="blank" href="#" class="btn btn-default btn-xs watch action html_url" role="button">Watch<span class="watchers_count"></span></a>
 			<div class="inner">
 				<span class="repo-name">
-					<a class="name html_url"></a>
+					<a target="blank" class="name html_url"></a>
 					<span class="language"></span>
 				</span>
 				<div class="rcmd"><span class="glyphicon glyphicon-thumbs-up"></span>Author Recommend</div>
 				<hr />
 				<img class="image img-responsive" /> 
-				<span class="homepage"><span class="glyphicon glyphicon-link"></span><a></a></span>
+				<span class="homepage"><span class="glyphicon glyphicon-link"></span><a target="blank"></a></span>
 				<p class="description"></p>
 				<div class="created_at"><span class="text"></span> created.</div>
 				<div class="updated_at"><span class="text"></span> last updated.</div>
@@ -87,8 +87,12 @@
 	</div>
 	<div id="progress"><div></div></div>
 	<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.2.js"></script>
+	<script>$('#progress').css({width:'6%'});</script>
 	<script src="js/packery.pkgd.min.js"></script>
+	<script>$('#progress').css({width:'9%'});</script>
 	<script src="config.json"></script>
+	<script>$('#progress').css({width:'12%'});</script>
 	<script src="js/about.js"></script>
+	<script>$('#progress').css({width:'15%'});</script>
 </body>
 </html>
