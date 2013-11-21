@@ -1,11 +1,8 @@
 _USER_DEFINE_ = _USER_DEFINE_ || {};
 var apiDomain = 'https://api.github.com';
 var username;
-var ploc = window.parent.location;
 var preview = false;
-if(location.href !== ploc.href && 
-	(ploc.hostname.indexOf('github.io') !== -1 || ploc.port === "8964") && 
-	location.search.indexOf('?gid=') === 0 ){
+if(location.search.indexOf('?gid=') === 0 ){
 	username = location.search.substr(5);
 	preview = true;
 }else if(location.hostname.indexOf('github.io') !== -1){
