@@ -30,6 +30,18 @@ GITHUB_CALLBACK['_users_'+username]= function(resp){
 		getScript('/users/'+username);
 		return true;
 	}
+	if(resp.data && resp.data.message === 'Not Found'){
+		var node = $('#tpl-wrap .nouser').clone();
+		node.appendTo('body>.content');
+		$('.content').packery('appended',node);
+		$('#progress').css({
+			width:'100%'
+		});
+		setTimeout(function(){
+			$('#progress').remove();
+		},1000);
+		return;
+	}
 	var user = resp.data;
 	log(user);
 	var node = $('#tpl-wrap .namecard').clone();
@@ -60,6 +72,12 @@ GITHUB_CALLBACK['_users_'+username]= function(resp){
 	}
 	if(!user.hireable){
 		node.find('.hireable').remove();
+	}
+	var t;
+	if(_USER_DEFINE_.info && _USER_DEFINE_.info[user.login] && (t =_USER_DEFINE_.info[user.login].twitter)){
+		node.find('.twitter').attr('href','http://twitter.com/'+t).find('.text').text(t);
+	}else{
+		node.find('.twitter').remove();
 	}
 	node.find('.created_at .text').text(joined.toLocaleDateString());
 	node.find('.followers').text(user.followers);
@@ -132,7 +150,7 @@ var renderRepos = function(){
 	}
 	for(i=0,l=repos.length;i<l;i++){
 		r = repos[i];
-		if(_USER_DEFINE_.ignore[r.name]){
+		if(_USER_DEFINE_.ignore && _USER_DEFINE_.ignore[r.name]){
 			repos.splice(i,1);
 			l--;
 			continue;

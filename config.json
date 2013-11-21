@@ -1,4 +1,9 @@
 var _USER_DEFINE_ = {
+	info : {
+		'AndreLion' : {
+			'twitter' : 'AndreLion'
+		}
+	},
 	recommend : {
 		'css-number-scroll' : true,
 		'html5-localstorage-manager' : true
