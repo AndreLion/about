@@ -120,7 +120,7 @@ var renderAbout = function(){
 
 var renderRepos = function(){
 	log(repos);
-	var i,l,
+	var i,l,r,
 		threshold = -1,
 		score,scores = [],
 		forks,stars,watchers;
@@ -131,11 +131,17 @@ var renderRepos = function(){
 		$('.content').packery('appended',node);
 	}
 	for(i=0,l=repos.length;i<l;i++){
-		forks = repos[i].forks_count;
-		stars = repos[i].stargazers_count;
-		watchers = repos[i].watchers_count;
+		r = repos[i];
+		if(_USER_DEFINE_.ignore[r.name]){
+			repos.splice(i,1);
+			l--;
+			continue;
+		}
+		forks = r.forks_count;
+		stars = r.stargazers_count;
+		watchers = r.watchers_count;
 		score = forks*10 + stars + watchers;
-		repos[i].score = score;
+		r.score = score;
 		if(score != 0){
 			scores.push(score);
 		}
