@@ -1,7 +1,7 @@
 Github About Page
 ================
 
-*Everything about yourself on Github.*
+_Everything **about** yourself on Github._
 
 This project helps you to generate a github page to list and introduce your information and repositories on Github. The page it generated is under your domain and fully under your control. If you are familiar with HTML / CSS / Javascript, you can customise and beautify it to meet your own requirement.
 
@@ -43,12 +43,12 @@ This need some work in termial with some git commands.
 If some updates are made in the [original repo](https://github.com/AndreLion/about) and you want to apply them to your own forked repo, please follow these two giudes to make your Github About Page catching up the latest version:
 
 1. [Syncing a fork in local](https://help.github.com/articles/syncing-a-fork).
-2. [Pushing a branch to remove](https://help.github.com/articles/pushing-to-a-remote#pushing-a-branch).
+2. [Pushing a branch to remote](https://help.github.com/articles/pushing-to-a-remote#pushing-a-branch).
 
 
 Acknowledge
 ----------------
-This project is powered by jQuery, Bootstrap, and [Packery](http://packery.metafizzy.co/).
+This project is powered by jQuery, Bootstrap, [Github API](http://developer.github.com/) and [Packery](http://packery.metafizzy.co/).
 
 Open Source License
 ----------------
