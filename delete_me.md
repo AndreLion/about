@@ -1,1 +1,1 @@
-Delete me to active you page.
+Delete me to activate you Github About Page.

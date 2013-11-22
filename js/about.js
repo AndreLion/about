@@ -1,4 +1,10 @@
-_USER_DEFINE_ = _USER_DEFINE_ || {};
+/*
+ * Javascript for Github About Page
+ * 
+ * https://github.com/AndreLion/about
+ * 
+ */
+var _CUSTOMSIZE_CONFIGURATION_ = _CUSTOMSIZE_CONFIGURATION_ || {};
 var apiDomain = 'https://api.github.com';
 var username;
 var preview = false;
@@ -8,7 +14,6 @@ if(location.search.indexOf('?gid=') === 0 ){
 }else if(location.hostname.indexOf('github.io') !== -1){
 	username = location.hostname.split('.')[0];
 }else{
-	//username = 'weierophinney';
 	username = 'andrelion';
 }
 var GITHUB_CALLBACK = {};
@@ -74,7 +79,7 @@ GITHUB_CALLBACK['_users_'+username]= function(resp){
 		node.find('.hireable').remove();
 	}
 	var t;
-	if(_USER_DEFINE_.info && _USER_DEFINE_.info[user.login] && (t =_USER_DEFINE_.info[user.login].twitter)){
+	if(_CUSTOMSIZE_CONFIGURATION_.userinfo && _CUSTOMSIZE_CONFIGURATION_.userinfo[user.login] && (t =_CUSTOMSIZE_CONFIGURATION_.userinfo[user.login].twitter)){
 		node.find('.twitter').attr('href','http://twitter.com/'+t).find('.text').text(t);
 	}else{
 		node.find('.twitter').remove();
@@ -125,7 +130,7 @@ var renderZen = function(quote){
 };
 
 var renderAbout = function(){
-	var node = $('#tpl-wrap .about').clone();
+	var node = $('#tpl-wrap .aboutcard').clone();
 	node.appendTo('body>.content');
 	$('.content').packery('appended',node);
 	$('#progress').css({
@@ -150,7 +155,7 @@ var renderRepos = function(){
 	}
 	for(i=0,l=repos.length;i<l;i++){
 		r = repos[i];
-		if(_USER_DEFINE_.ignore && _USER_DEFINE_.ignore[r.name]){
+		if(_CUSTOMSIZE_CONFIGURATION_.ignore && _CUSTOMSIZE_CONFIGURATION_.ignore[r.name]){
 			repos.splice(i,1);
 			l--;
 			continue;
@@ -199,15 +204,19 @@ var renderRepos = function(){
 		}
 		if(repo.fork){
 			node.addClass('forked');
+		}else{
+			node.find('.fkd').remove();
 		}
 		if(threshold !== -1 && repo.score >= threshold){
 			node.addClass('proud').find('.description').addClass('lead');
 		}
-		if(_USER_DEFINE_.recommend && _USER_DEFINE_.recommend[repo.name]){
+		if(_CUSTOMSIZE_CONFIGURATION_.recommend && _CUSTOMSIZE_CONFIGURATION_.recommend[repo.name]){
 			node.addClass('recommend');
+		}else{
+			node.find('.rcmd').remove();
 		}
-		if(_USER_DEFINE_.image && _USER_DEFINE_.image[repo.name]){
-			node.find('.image').attr('src',_USER_DEFINE_.image[repo.name]);
+		if(_CUSTOMSIZE_CONFIGURATION_.image && _CUSTOMSIZE_CONFIGURATION_.image[repo.name]){
+			node.find('.image').attr('src',_CUSTOMSIZE_CONFIGURATION_.image[repo.name]);
 		}else{
 			node.find('.image').remove();
 		}

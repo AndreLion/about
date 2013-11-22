@@ -1,3 +1,13 @@
+/*
+ * Stylesheet for Github About Page
+ * 
+ * https://github.com/AndreLion/about
+ * 
+ * At bottom of thie file, there is Customization Zone, 
+ * you can add your own stylesheet there to control your 
+ * repository card's style. Making the layout looks beeter. 
+ * 
+ */
 body { background:#fefefe url(../assets/bg.png) repeat 0 0 scroll; }
 .glyphicon { color:#666;margin-right:5px; }
 .box { font-family: "Helvetica Nenu",Hevetica,Arial,sans-serif;background-color:#DDD;border-radius:5px;margin:40px 20px;box-shadow:-5px -4px 25px rgba(0, 0, 0, 0.3); }
@@ -45,7 +55,8 @@ body { background:#fefefe url(../assets/bg.png) repeat 0 0 scroll; }
 .namecard .twitter .text:before { content:'@'; }
 
 .repocard { float:left;background-color:#FFF;overflow:hidden; }
-.repocard.forked:before { -webkit-transform:rotate(-45deg);content:'Forked';position:absolute;top:14px;background-color:#fd9419;padding:0 25px;left:-24px;color:#FFF;border:2px solid #fbe26e;box-shadow:0px 1px 5px #CCC; }
+/*.repocard.forked:before { -webkit-transform:rotate(-45deg);content:'Forked';position:absolute;top:14px;background-color:#fd9419;padding:0 25px;left:-24px;color:#FFF;border:2px solid #fbe26e;box-shadow:0px 1px 5px #CCC; }*/
+.repocard.forked .fkd { font-size:24px;width:16px;overflow:hidden;-webkit-transform: rotate(45deg);transform: rotate(45deg); }
 .repocard .inner { padding-top:40px; }
 .repocard .action { float:right;margin-right:10px;margin-top:15px; }
 .repocard .action span { padding-left:3px; }
@@ -59,16 +70,23 @@ body { background:#fefefe url(../assets/bg.png) repeat 0 0 scroll; }
 .repocard .created_at { color:#666;margin-top:15px; }
 .repocard .updated_at { color:#666; }
 .repocard.proud .name { font-size:38px; }
-.repocard .rcmd { display:none; }
-.repocard.recommend .rcmd { display:block; }
+.repocard.recommend .rcmd { font-size:24px;color:#f60; }
+
+.aboutcard { line-height:26px; }
 
 .resp404 { font-size:18px; }
 .resp404 img { width:160px;height:160px;display:inline-block; }
 
 
-/*----------------------------------------*/
+/*
+ * Customization Zone
+ * Rule : 'repo-' is prefix, you can find your repository card by class name 'repo-your-github-repo-name'
+ */
+
+/*----Example---*/
 .repo-facebook-weibo-login { width:600px !important; }
 .repo-facebook-weibo-login .image { width:250px; }
 .repo-css-number-scroll { width:400px !important; }
 .repo-css-number-scroll .image { height:60px;width:199px; }
 .repo-css-number-scroll .homepage { display:block;margin-top:87px; }
+/*----Example---*/

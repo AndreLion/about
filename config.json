@@ -1,18 +1,34 @@
-var _USER_DEFINE_ = {
-	info : {
+/*
+ * configration for Github About Page
+ * 
+ * https://github.com/AndreLion/about
+ * 
+ * This configuration file is formatted in JSON.
+ * 
+ */
+var _CUSTOMSIZE_CONFIGURATION_ = {
+
+	// Extend User Information
+	userinfo : {
 		'AndreLion' : {
 			'twitter' : 'AndreLion'
 		}
 	},
+
+	// the repos you recommend. A thumbup icon will be shown in the repo card
 	recommend : {
 		'css-number-scroll' : true,
 		'html5-localstorage-manager' : true
 	},
+
+	//the image will be inserted into the repo card
 	image : {
 		'html5-localstorage-manager' : 'http://andrelion.github.io/html5-localstorage-manager/images/localstorage.png',
 		'facebook-weibo-login' : 'https://raw.github.com/AndreLion/facebook-weibo-login/master/screenshot.png',
 		'css-number-scroll' : 'http://andrelion.github.io/css-number-scroll/demo.gif'
 	},
+
+	//the repo will not be listed in your Github About Page
 	ignore : {
 		'fork-update' : true
 	}
