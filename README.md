@@ -17,7 +17,7 @@ Features
 2. List your Github personal information you provided in the profile setting.
 3. List your Github public repositories, you can choose to highlight or hide some of them.
 4. You can extend your personal information such as Twitter account.
-5. You can extend your repository information by adding a image.
+5. You can custimise your repository information by adding a image.
 5. Easy to deploy, every code is under your control.
 
 How to get your own Github About Page?
@@ -32,7 +32,9 @@ The Url would be [http://*your-github-ID*.github.io/about/](http://your-github-I
 
 How to customise your own Github About Page?
 -----------------
-You can change your code to whatever you like because you have the ownership of the repository after you fork it. However, 
+You can change your code to whatever you like because you have the ownership of the repository after you fork it. However, there are two ways to extend your Githua About Page easily:
+1. config.json : in this file, you can extend your personal or repo information. For more details, plase check the comment in this file.
+2. css/style.css : in the bottom of this file, you can add your own stylesheet to make you repo card perfectly shows in your Github About Page.
 
 
 Acknowledge
