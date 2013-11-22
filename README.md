@@ -1,6 +1,8 @@
 Github About Page
 ================
 
+Version 1.0
+
 _Everything **about** yourself on Github._
 
 This project helps you to generate a github page to list and introduce your information and repositories on Github. The page it generated is under your domain and fully under your control. If you are familiar with HTML / CSS / Javascript, you can customise and beautify it to meet your own requirement.
