@@ -17,6 +17,7 @@ var _CUSTOMSIZE_CONFIGURATION_ = {
 
 	// the repos you recommend. A thumbup icon will be shown in the repo card
 	recommend : {
+		'about' : true,
 		'css-number-scroll' : true,
 		'html5-localstorage-manager' : true
 	},
