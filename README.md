@@ -3,13 +3,11 @@ Github About Page
 
 *Everything about yourself on Github.*
 
-This project helps you to generate a github page to list and introduce your information and repositories on Github. The page is under your domain and fully under your control. If you are familiar with HTML / CSS / Javascript, you can customise and beautify your page to meet your own requirement.
+This project helps you to generate a github page to list and introduce your information and repositories on Github. The page it generated is under your domain and fully under your control. If you are familiar with HTML / CSS / Javascript, you can customise and beautify it to meet your own requirement.
 
-Briefly speaking, **it's your Github personal homepage in a friendly and intuitive view**.
+Briefly speaking, **it's your Github personal homepage in a friendly and clear view**.
 
-Take a quick glance at it: 
-
-[http://andrelion.github.io/about/](http://andrelion.github.io/about/)
+Take a quick glance at it:  [http://andrelion.github.io/about/](http://andrelion.github.io/about/)
 
 ![Preview](http://andrelion.github.io/about/assets/preview.png "Preview")
 
