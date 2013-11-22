@@ -6,13 +6,8 @@ This project helps you to generate a github page to list and introduce your info
 Take a quick glance at it: 
 
 [andrelion/about](http://andrelion.github.io/about/)
+
 ![Preview](http://andrelion.github.io/about/assets/preview.png "Preview")
-
-
-
-
-
-
 
 How to get your own Github About Page?
 -----------------
