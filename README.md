@@ -11,6 +11,8 @@ Take a quick glance at it:  [http://andrelion.github.io/about/](http://andrelion
 
 ![Preview](http://andrelion.github.io/about/assets/preview.png "Preview")
 
+Also you can preview your own:  [http://andrelion.github.io/about/preview/](http://andrelion.github.io/about/preview/)
+
 Features
 -----------------
 1. Indepedent and graceful url address, e.g. http://yourname.github.io/about
