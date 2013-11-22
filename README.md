@@ -11,7 +11,7 @@ Take a quick glance at it:  [http://andrelion.github.io/about/](http://andrelion
 
 ![Preview](http://andrelion.github.io/about/assets/preview.png "Preview")
 
-[Also you can preview your own](http://andrelion.github.io/about/preview/).
+[Also you can preview your own Github About Page](http://andrelion.github.io/about/preview/).
 
 Features
 -----------------
@@ -49,6 +49,7 @@ If some updates are made in the [original repo](https://github.com/AndreLion/abo
 1. [Syncing a fork in local](https://help.github.com/articles/syncing-a-fork).
 2. [Pushing a branch to remote](https://help.github.com/articles/pushing-to-a-remote#pushing-a-branch).
 
+If you are afraid of command work, you can simply backup your own code then delete the repo then fork a new one then restore the code you backed-up.
 
 Acknowledge
 ----------------
