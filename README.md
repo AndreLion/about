@@ -5,15 +5,16 @@ This project helps you to generate a github page to list and introduce your info
 
 Take a quick glance at it: 
 
+[andrelion/about](http://andrelion.github.io/about/)
 ![Preview](http://andrelion.github.io/about/assets/preview.png "Preview")
 
 
 
 
-[About](https://github.com/AndreLion/about)
 
 
-How to get my own Github About Page?
+
+How to get your own Github About Page?
 -----------------
 It's very easy, there are only two things need to be done:
 
@@ -23,4 +24,11 @@ It's very easy, there are only two things need to be done:
 Then, wait at most ten minutes till your own Github About Page has been shipped. 
 The Url would be [http://*your-github-ID*.github.io/about/](http://your-github-ID.github.io/about/)
 
-How to 
+How to customise your own Github About Page?
+-----------------
+You can change your code to whatever you like because you have the ownership of the repository after you fork it. However, 
+
+
+Acknowledge
+----------------
+This project is powered by jQuery, Bootstrap, and [Packery](http://packery.metafizzy.co/).
