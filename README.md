@@ -36,6 +36,14 @@ You can change your code to whatever you like because you have the ownership of 
 1. config.json : in this file, you can extend your personal or repo information. For more details, plase check the comment in this file.
 2. css/style.css : in the bottom of this file, you can add your own stylesheet to make you repo card perfectly shows in your Github About Page.
 
+How to keep to update?
+-----------------
+This need some work in termial with some git commands.
+
+If some updates are made in the [original repo](https://github.com/AndreLion/about) and you want to apply them to your own forked repo, please follow these two giudes to make your Github About Page catching up the latest version:
+1. [Syncing a fork in local](https://help.github.com/articles/syncing-a-fork).
+2. [Pushing a branch to remove](https://help.github.com/articles/pushing-to-a-remote#pushing-a-branch).
+
 
 Acknowledge
 ----------------
