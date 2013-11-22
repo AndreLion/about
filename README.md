@@ -17,7 +17,7 @@ Features
 -----------------
 1. Indepedent and graceful url address, e.g. http://yourname.github.io/about
 2. List your Github personal information you provided in the profile setting.
-3. List your Github public repositories, you can choose to highlight or hide some of them.
+3. List your Github public repositories, you can choose to recommend or ignore some of them.
 4. You can extend your personal information such as Twitter account.
 5. You can customise your repository information by adding a image.
 5. Easy to deploy, every code is under your control.
