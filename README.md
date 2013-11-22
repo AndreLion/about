@@ -11,7 +11,7 @@ Take a quick glance at it:  [http://andrelion.github.io/about/](http://andrelion
 
 ![Preview](http://andrelion.github.io/about/assets/preview.png "Preview")
 
-Also you can preview your own:  [http://andrelion.github.io/about/preview/](http://andrelion.github.io/about/preview/)
+[Also you can preview your own](http://andrelion.github.io/about/preview/).
 
 Features
 -----------------
@@ -19,7 +19,7 @@ Features
 2. List your Github personal information you provided in the profile setting.
 3. List your Github public repositories, you can choose to highlight or hide some of them.
 4. You can extend your personal information such as Twitter account.
-5. You can custimise your repository information by adding a image.
+5. You can customise your repository information by adding a image.
 5. Easy to deploy, every code is under your control.
 
 How to get your own Github About Page?
@@ -30,11 +30,13 @@ It's very easy, there are only two things need to be done:
 2. Go to your gh-pages branch [https://github.com/*your-github-ID*/about/tree/gh-pages](https://github.com/your-github-ID/about/tree/gh-pages) and delete the file called delete_me.md in order to activate your github page.
 
 Then, wait at most ten minutes till your own Github About Page has been shipped. 
+
 The Url would be [http://*your-github-ID*.github.io/about/](http://your-github-ID.github.io/about/)
 
 How to customise your own Github About Page?
 -----------------
 You can change your code to whatever you like because you have the ownership of the repository after you fork it. However, there are two ways to extend your Githua About Page easily:
+
 1. config.json : in this file, you can extend your personal or repo information. For more details, plase check the comment in this file.
 2. css/style.css : in the bottom of this file, you can add your own stylesheet to make you repo card perfectly shows in your Github About Page.
 
