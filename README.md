@@ -1,7 +1,7 @@
 Github About Page
 ================
 
-Version 1.6
+Version 2.0
 
 _Everything **about** yourself on Github._
 
