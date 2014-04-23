@@ -7,7 +7,7 @@ _Everything **about** yourself on Github._
 
 This project helps you to build a **about** page to introduce all your information on Github, including your profile, public repositories and contribution frequency. All you need to do is to fork this repository then active its gh-pages branch. Your **about** page is hosted under your own Github and you can show it to others as a clear and intuitive introduction of your work at Github.
 
-Briefly speaking, Github user profile page sucks, so I improved it and made it easy to use by others.
+Briefly speaking, Github official user profile page sucks, so I improved it and made it easy to use by others.
 
 Take a quick glance at the **Github About Page** below as [an example](http://andrelion.github.io/about/) and you can [preview your own](http://andrelion.github.io/about/preview/).
 
