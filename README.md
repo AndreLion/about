@@ -1,19 +1,20 @@
 Github About Page
 ================
 
-Version 1.0
+Version 1.6
 
 _Everything **about** yourself on Github._
 
-This project helps you to generate a github page to list and introduce your information and repositories on Github. The page it generated is under your domain and fully under your control. If you are familiar with HTML / CSS / Javascript, you can customise and beautify it to meet your own requirement.
+This project helps you to build a **about** page to introduce all your information on Github, including your profile, public repositories and contribution frequency. All you need to do is fork this repository then active its gh-pages branch. Your **about** page is hosted under your own Github and you can show it to others as a clear and intuitive introduction of your work at Github.
 
-Briefly speaking, **it's your Github personal homepage in a friendly and clear view**.
+Briefly speaking, Github user profile page sucks, so I improved it and made it easy to use by others.
 
-Take a quick glance at it:  [http://andrelion.github.io/about/](http://andrelion.github.io/about/)
+Take a quick glance at the **Github About Page** below as [an example](http://andrelion.github.io/about/) and you can [preview your own](http://andrelion.github.io/about/preview/).
 
 ![Preview](http://andrelion.github.io/about/assets/preview.png "Preview")
 
-[Also you can preview your own Github About Page](http://andrelion.github.io/about/preview/).
+
+
 
 Features
 -----------------
