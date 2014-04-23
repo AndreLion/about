@@ -8,6 +8,7 @@ var _CUSTOMSIZE_CONFIGURATION_ = _CUSTOMSIZE_CONFIGURATION_ || {};
 var apiDomain = 'https://api.github.com';
 var username;
 var preview = false;
+var version = null;
 if(location.search.indexOf('?gid=') === 0 ){
 	username = location.search.substr(5);
 	preview = true;
@@ -87,7 +88,7 @@ GITHUB_CALLBACK['_users_'+username]= function(resp){
 	node.find('.created_at .text').text(joined.toLocaleDateString());
 	node.find('.followers').text(user.followers);
 	node.find('.following').text(user.following);
-	node.find('.public_repos').text(user.public_repos);
+	node.find('.public_repos .text').text(user.public_repos);
 	node.find('.public_gists').text(user.public_gists);
 	node.appendTo('body>.content');
 	$('.content').packery('appended',node);
@@ -103,9 +104,10 @@ GITHUB_CALLBACK['_users_'+username]= function(resp){
 	$('#progress').css({
 		width:'60%'
 	});
+	$('.all-repos .username').text(user.name);
 	getScript('/users/'+username+'/repos');
 };
-GITHUB_CALLBACK['_users_'+username+'_repos']= function(resp){
+GITHUB_CALLBACK['_users_'+username+'_repos'] = function(resp){
 	if(resp.meta.status === 403){
 		exceeded = true;
 		getScript('/users/'+username+'/repos');
@@ -117,10 +119,12 @@ GITHUB_CALLBACK['_users_'+username+'_repos']= function(resp){
 			full:true
 		});
 	}else{
+		renderAllRepos();
 		renderRepos();
+		getVersion();
 	}
 };
-GITHUB_CALLBACK['_contribute_calendar_data']= function(data){
+GITHUB_CALLBACK['_contribute_calendar_data'] = function(data){
 	var html = [];
 	for(var r=0,rows=12;r<rows;r++){
 		html.push('<tr>');
@@ -137,6 +141,23 @@ GITHUB_CALLBACK['_contribute_calendar_data']= function(data){
 		var row = (length%12)+1;
 		var className = 'c'+(data[length][1]<15?data[length][1]:'top');
 		$('#contribute tr:nth-child('+row+') td:nth-child('+col+')').attr('title',data[length][0]).addClass(className);
+	}
+};
+GITHUB_CALLBACK['version'] = function(data){
+	log('version callback');
+	if(version === null){
+		version = data.version;
+		log('version set:',version);
+		$.ajax({
+			dataType:'script',
+			url:'http://andrelion.github.io/about/version.js',
+			success:function(){
+				log('version success');
+			},
+			failure:function(){
+				log('version failure');
+			}
+		});
 	}
 };
 
@@ -161,6 +182,20 @@ var renderAbout = function(){
 	setTimeout(function(){
 		$('#progress').remove();
 	},1000);
+};
+
+var renderAllRepos = function(){
+	var container = $('.all-repos .panel-body');
+	var currInitial = null;
+	var prevInitial = null;
+	for(var i=0,l=repos.length;i<l;i++){
+		currInitial = repos[i].name[0].toUpperCase();
+		if(currInitial !== prevInitial){
+			container.append('<h4>'+currInitial+'</h4>');
+		}
+		container.append('<a href="'+repos[i].html_url+'" target="_blank">'+repos[i].name+'</a>');
+		prevInitial = currInitial;
+	}
 };
 
 var renderRepos = function(){
@@ -201,6 +236,7 @@ var renderRepos = function(){
 		//threshold = scores[parseInt(scores.length*0.382,10)-1];
 		threshold = scores[2];
 	}
+	repoPub.sort(function(x,y){return y.score-x.score;});
 	$.each(repoPub,function(index,repo){
 		var maxtry = 6;
 		var node = $('#tpl-wrap .repocard').clone();
@@ -311,9 +347,25 @@ var getCalendar = function(){
 	$.getScript('http://miscellaneous.sinaapp.com/github/calendar.php?username='+username);
 };
 
+var getVersion = function(){
+	setTimeout(function(){
+		$.getScript('version.js',function(){
+		});
+	},2000);
+};
+
 $(function(){
 	$('.content').packery({
 		gutter: 0
 	});
 	getZen();
+	$('body').on('click','.all-repos-trigger',function(){
+		$('.all-repos').toggle();
+	});
+	$('body').on('click',function(ev){
+		var target = $(ev.target);
+		if(!target.closest('.all-repos').length && !target.hasClass('all-repos-trigger')){ 
+			$('.all-repos').hide();
+		}
+	});
 });
