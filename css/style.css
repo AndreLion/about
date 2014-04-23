@@ -84,10 +84,10 @@ body { background:#fefefe url(../assets/bg.png) repeat 0 0 scroll; }
 .repocard.proud .name { font-size:38px; }
 .repocard.recommend .rcmd { font-size:24px;color:#f60; }
 
-.forkcard { float:left;background-color:#FFF;overflow:hidden; }
+.forkcard { float:left;background-color:#FFF;overflow:hidden;max-width:500px; }
 .forkcard .fkd { font-size:24px;width:16px;overflow:hidden;-webkit-transform: rotate(45deg);transform: rotate(45deg); }
 .forkcard h4 { font-size:26px;color:#666; }
-.forkcard .name { font-size:20px;display:block; }
+.forkcard .name { font-size:20px;display:inline-block;padding:2px 15px 0 0; }
 
 .aboutcard { line-height:26px; }
 

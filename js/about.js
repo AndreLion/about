@@ -270,6 +270,7 @@ var renderRepos = function(){
 		$.each(repoFork,function(index,r){
 			node.find('.repo-name').append('<a target="_blank" class="name html_url" href="'+r.html_url+'">'+r.name+'</a>');
 		});
+		node.find('.count').text(repoFork.length);
 		$('.content').packery('appended',node);
 	}
 	$('#progress').css({
