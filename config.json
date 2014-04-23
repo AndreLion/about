@@ -11,7 +11,7 @@ var _CUSTOMSIZE_CONFIGURATION_ = {
 	// Extend User Information
 	userinfo : {
 		'AndreLion' : {
-			'twitter' : 'AndreLion'
+			//'twitter' : 'AndreLion'
 		}
 	},
 

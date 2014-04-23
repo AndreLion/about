@@ -146,7 +146,7 @@ var renderRepos = function(){
 	var i,l,r,
 		threshold = -1,
 		score,scores = [],
-		forks,stars,watchers;
+		forks,stars;
 	if(!repos.length){
 		var node = $('#tpl-wrap .norepo').clone();
 		node.appendTo('body>.content');
@@ -162,8 +162,7 @@ var renderRepos = function(){
 		}
 		forks = r.forks_count;
 		stars = r.stargazers_count;
-		watchers = r.watchers_count;
-		score = forks*10 + stars + watchers;
+		score = forks*10 + stars;
 		r.score = score;
 		if(score != 0){
 			scores.push(score);
@@ -196,7 +195,6 @@ var renderRepos = function(){
 		}
 		node.find('.stargazers_count').text(repo.stargazers_count);
 		node.find('.updated_at .text').text(updated.toLocaleDateString());
-		node.find('.watchers_count').text(repo.watchers_count);
 		if(repo.language){
 			node.find('.language').text(repo.language);
 		}else{

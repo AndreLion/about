@@ -55,7 +55,7 @@ body { background:#fefefe url(../assets/bg.png) repeat 0 0 scroll; }
 .namecard .twitter .text:before { content:'@'; }
 
 .repocard { float:left;background-color:#FFF;overflow:hidden; }
-/*.repocard.forked:before { -webkit-transform:rotate(-45deg);content:'Forked';position:absolute;top:14px;background-color:#fd9419;padding:0 25px;left:-24px;color:#FFF;border:2px solid #fbe26e;box-shadow:0px 1px 5px #CCC; }*/
+.repocard.forked { display:none; }
 .repocard.forked .fkd { font-size:24px;width:16px;overflow:hidden;-webkit-transform: rotate(45deg);transform: rotate(45deg); }
 .repocard .inner { padding-top:40px; }
 .repocard .action { float:right;margin-right:10px;margin-top:15px; }
