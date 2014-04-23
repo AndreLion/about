@@ -53,8 +53,9 @@ When there is a new version available, a notification will be shown on your **Gi
 2. [Pushing a branch to remote](https://help.github.com/articles/pushing-to-a-remote#pushing-a-branch).
 
 Or, there is another eaiser method to do so:
+
 1. Delete your **about** repository.
-2. Goto [How to get your own Github About Page](https://github.com/AndreLion/about#how-to-get-your-own-github-about-page)
+2. Goto: [How to get your own Github About Page](https://github.com/AndreLion/about#how-to-get-your-own-github-about-page)
 
 
 Acknowledge
