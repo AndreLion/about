@@ -11,7 +11,7 @@
 body { background:#fefefe url(../assets/bg.png) repeat 0 0 scroll; }
 .glyphicon { color:#666;margin-right:5px; }
 .box { font-family: "Helvetica Nenu",Hevetica,Arial,sans-serif;background-color:#DDD;border-radius:5px;margin:40px 20px;box-shadow:-5px -4px 25px rgba(0, 0, 0, 0.3); }
-.box .inner{ background: #fff;padding: 30px;border-radius:5px;box-shadow: inset 0 2px 0 #999;margin:0;border-left:none; }
+.box .inner{ background: #fff;padding: 30px;border-radius:5px;box-shadow: inset 0 2px 0 #CCC;margin:0;border-left:none; }
 
 #progress { position:absolute;top:0;left:0;height:2px;width:3%;background-color:#4387FD;transition:width 0.5s ease-in; }
 #progress div { margin-left:99.9%;height:100%;width:1px;background-color:#4387FD;border-radius: 15px;box-shadow: 0px 0px 15px 5px rgba(67, 135, 253, 0.75); }
@@ -32,11 +32,24 @@ body { background:#fefefe url(../assets/bg.png) repeat 0 0 scroll; }
 .quote cite a:hover{ color:#444;text-shadow: 0 1px 1px rgba(255,255,255,0.7); }
 
 .namecard { width:500px; }
+.namecard .inner { position:relative; }
 .namecard .follow { margin: 10px 0 0 10px; }
-.namecard .detail { min-height:145px; }
+.namecard .detail { min-height:145px;position:relative; }
 .namecard .detail>span,
 .namecard .detail>a { margin-left:20px;margin-bottom:5px; }
 .namecard .detail .glyphicon { color:#666; }
+.namecard .mask { position:absolute;top:0;left:0;margin:0;background-color:#FFF;width:100%;height:100%;opacity:0.7;border-radius:5px; }
+.namecard table { position:absolute;top:0;left:0;margin:0;border-spacing:1px;border-collapse:separate;border-radius:5px;width:500px; }
+.namecard table tr {}
+.namecard table td { height:15px; }
+#contribute .c0 { background-color:#EEE; }
+#contribute .c1,#contribute .c2,#contribute .c3,#contribute .c4,
+#contribute .c5 { background-color:#D6E685; }
+#contribute .c6,#contribute .c7,#contribute .c8,#contribute .c9,
+#contribute .c10 { background-color:#8CC665; }
+#contribute .c11,#contribute .c12,#contribute .c13,#contribute .c14,
+#contribute .c15 { background-color:#44A340; }
+#contribute .ctop { background-color:#1E6823; }
 .namecard a.name { font-weight:bold;font-size:26px;display:inline-block;margin-bottom:15px; }
 .namecard .company { display:block; }
 .namecard .location { display:block; }

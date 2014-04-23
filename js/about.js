@@ -18,9 +18,9 @@ if(location.search.indexOf('?gid=') === 0 ){
 }
 var GITHUB_CALLBACK = {};
 var h,w;
-var log = function(s){
+var log = function(){
 	try{
-		console.log(s);
+		console.log.apply(console,arguments);
 	}catch(e){}
 };
 var exceeded = false;
@@ -115,6 +115,26 @@ GITHUB_CALLBACK['_users_'+username+'_repos']= function(resp){
 		});
 	}else{
 		renderRepos();
+	}
+};
+GITHUB_CALLBACK['_contribute_calendar_data']= function(data){
+	var html = [];
+	for(var r=0,rows=12;r<rows;r++){
+		html.push('<tr>');
+		for(var c=0,cols=30;c<cols;c++){
+			html.push('<td></td>');
+		}
+		html.push('</tr>');
+	}
+	$('#contribute').html(html.join(''));
+	data = data.splice(data.length-360,data.length);
+	var length = data.length;
+	while(length--){
+		var col = Math.floor(length/12)+1;
+		var row = (length%12)+1;
+		var className = 'c'+((data[length][1]<15)?(data[length][1]):('top'));
+		//$('#contribute tr:nth-child('+row+') td:nth-child('+col+')').attr('title',data[length][0]).addClass('c'+data[length][1]);
+		$('#contribute tr:nth-child('+row+') td:nth-child('+col+')').attr('title',data[length][0]).addClass(className);
 	}
 };
 
@@ -260,6 +280,7 @@ var getZen = function(){
 			var quote = resp;
 			renderZen(quote);
 			getScript('/users/'+username);
+			getCalendar();
 		},
 		error:function(xhr,type,err){
 			if(xhr.status === 403){
@@ -268,6 +289,9 @@ var getZen = function(){
 			}
 		}
 	});
+};
+var getCalendar = function(){
+	$.getScript('http://miscellaneous.sinaapp.com/github/calendar.php?username='+username);
 };
 
 $(function(){
