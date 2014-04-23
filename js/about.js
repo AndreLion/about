@@ -144,20 +144,14 @@ GITHUB_CALLBACK['_contribute_calendar_data'] = function(data){
 	}
 };
 GITHUB_CALLBACK['version'] = function(data){
-	log('version callback');
 	if(version === null){
 		version = data.version;
-		log('version set:',version);
-		$.ajax({
-			dataType:'script',
-			url:'http://andrelion.github.io/about/version.js',
-			success:function(){
-				log('version success');
-			},
-			failure:function(){
-				log('version failure');
-			}
-		});
+		$.getScript('http://andrelion.github.io/about/version.js');
+	}else{
+		if(version !== data.version){
+			log('new version avalible',data.version);
+			$('.quote .inner p').html('<a href="https://github.com/AndreLion/about#how-to-keep-update">New About Version '+data.version+' is Now Available.</a>');
+		}
 	}
 };
 
