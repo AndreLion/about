@@ -97,6 +97,9 @@ GITHUB_CALLBACK['_users_'+username]= function(resp){
 		height:h,
 		width:w/2
 	});
+	$('#tpl-wrap .forkcard').css({
+		height:h
+	});
 	$('#progress').css({
 		width:'60%'
 	});
@@ -132,8 +135,7 @@ GITHUB_CALLBACK['_contribute_calendar_data']= function(data){
 	while(length--){
 		var col = Math.floor(length/12)+1;
 		var row = (length%12)+1;
-		var className = 'c'+((data[length][1]<15)?(data[length][1]):('top'));
-		//$('#contribute tr:nth-child('+row+') td:nth-child('+col+')').attr('title',data[length][0]).addClass('c'+data[length][1]);
+		var className = 'c'+(data[length][1]<15?data[length][1]:'top');
 		$('#contribute tr:nth-child('+row+') td:nth-child('+col+')').attr('title',data[length][0]).addClass(className);
 	}
 };
@@ -164,9 +166,12 @@ var renderAbout = function(){
 var renderRepos = function(){
 	log(repos);
 	var i,l,r,
+		repoFork = [],
+		repoPub = [],
 		threshold = -1,
 		score,scores = [],
-		forks,stars;
+		forks,stars,
+		node;
 	if(!repos.length){
 		var node = $('#tpl-wrap .norepo').clone();
 		node.appendTo('body>.content');
@@ -176,8 +181,6 @@ var renderRepos = function(){
 	for(i=0,l=repos.length;i<l;i++){
 		r = repos[i];
 		if(_CUSTOMSIZE_CONFIGURATION_.ignore && _CUSTOMSIZE_CONFIGURATION_.ignore[r.name]){
-			repos.splice(i,1);
-			l--;
 			continue;
 		}
 		forks = r.forks_count;
@@ -187,13 +190,18 @@ var renderRepos = function(){
 		if(score != 0){
 			scores.push(score);
 		}
+		if(r.fork){
+			repoFork.push(r);
+		}else{
+			repoPub.push(r);
+		}
 	}
 	scores.sort(function(x,y){return y-x;});
 	if(scores.length >= 10){
 		//threshold = scores[parseInt(scores.length*0.382,10)-1];
 		threshold = scores[2];
 	}
-	$.each(repos,function(index,repo){
+	$.each(repoPub,function(index,repo){
 		var maxtry = 6;
 		var node = $('#tpl-wrap .repocard').clone();
 		var created = new Date(repo.created_at);
@@ -220,11 +228,11 @@ var renderRepos = function(){
 		}else{
 			node.find('.language').remove();
 		}
-		if(repo.fork){
+		/*if(repo.fork){
 			node.addClass('forked');
 		}else{
 			node.find('.fkd').remove();
-		}
+		}*/
 		if(threshold !== -1 && repo.score >= threshold){
 			node.addClass('proud').find('.description').addClass('lead');
 		}
@@ -256,6 +264,14 @@ var renderRepos = function(){
 		}
 		$('.content').packery('appended',node);
 	});
+	if(repoFork.length){
+		node = $('#tpl-wrap .forkcard').clone();
+		node.appendTo('body>.content');
+		$.each(repoFork,function(index,r){
+			node.find('.repo-name').append('<a target="_blank" class="name html_url" href="'+r.html_url+'">'+r.name+'</a>');
+		});
+		$('.content').packery('appended',node);
+	}
 	$('#progress').css({
 		width:'90%'
 	});

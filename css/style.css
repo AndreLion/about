@@ -38,7 +38,7 @@ body { background:#fefefe url(../assets/bg.png) repeat 0 0 scroll; }
 .namecard .detail>span,
 .namecard .detail>a { margin-left:20px;margin-bottom:5px; }
 .namecard .detail .glyphicon { color:#666; }
-.namecard .mask { position:absolute;top:0;left:0;margin:0;background-color:#FFF;width:100%;height:100%;opacity:0.7;border-radius:5px; }
+.namecard .mask { position:absolute;top:0;left:0;margin:0;background-color:#FFF;width:100%;height:100%;opacity:0.8;border-radius:5px; }
 .namecard table { position:absolute;top:0;left:0;margin:0;border-spacing:1px;border-collapse:separate;border-radius:5px;width:500px; }
 .namecard table tr {}
 .namecard table td { height:15px; }
@@ -69,7 +69,6 @@ body { background:#fefefe url(../assets/bg.png) repeat 0 0 scroll; }
 
 .repocard { float:left;background-color:#FFF;overflow:hidden; }
 .repocard.forked { display:none; }
-.repocard.forked .fkd { font-size:24px;width:16px;overflow:hidden;-webkit-transform: rotate(45deg);transform: rotate(45deg); }
 .repocard .inner { padding-top:40px; }
 .repocard .action { float:right;margin-right:10px;margin-top:15px; }
 .repocard .action span { padding-left:3px; }
@@ -84,6 +83,11 @@ body { background:#fefefe url(../assets/bg.png) repeat 0 0 scroll; }
 .repocard .updated_at { color:#666; }
 .repocard.proud .name { font-size:38px; }
 .repocard.recommend .rcmd { font-size:24px;color:#f60; }
+
+.forkcard { float:left;background-color:#FFF;overflow:hidden; }
+.forkcard .fkd { font-size:24px;width:16px;overflow:hidden;-webkit-transform: rotate(45deg);transform: rotate(45deg); }
+.forkcard h4 { font-size:26px;color:#666; }
+.forkcard .name { font-size:20px;display:block; }
 
 .aboutcard { line-height:26px; }
 
