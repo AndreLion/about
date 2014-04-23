@@ -30,7 +30,7 @@ How to get your own Github About Page?
 It's very easy, there are only two steps you need to do:
 
 1. Fork me.
-2. Active the gh-pages by modifying the file called active-me.md under your gh-pages branch [https://github.com/*your-github-ID*/about/tree/gh-pages](https://github.com/your-github-ID/about/tree/gh-pages).
+2. Active the gh-pages by modifying the file called modify-me.md under your gh-pages branch [https://github.com/*your-github-ID*/about/tree/gh-pages](https://github.com/your-github-ID/about/tree/gh-pages).
 
 Then, wait at most ten minutes till your own Github About Page has been shipped. 
 
