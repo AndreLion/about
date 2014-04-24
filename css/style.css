@@ -41,7 +41,7 @@ body { background:#fefefe url(../assets/bg.png) repeat 0 0 scroll; }
 .namecard .mask { position:absolute;top:0;left:0;margin:0;background-color:#FFF;width:100%;height:100%;opacity:0.6;border-radius:5px; }
 .namecard table { position:absolute;top:0;left:0;margin:0;border-spacing:1px;border-collapse:separate;border-radius:5px;width:500px; }
 .namecard table tr {}
-.namecard table td { height:15px; }
+.namecard table td { height:15px;padding:1px; }
 #contribute .c0 { background-color:#EEE; }
 #contribute .c1,#contribute .c2,#contribute .c3,#contribute .c4,
 #contribute .c5 { background-color:#D6E685; }
