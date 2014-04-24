@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Preview About</title>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<style>
 		html, body, iframe { margin:0;padding:0;height:100%;width:100%;border:none; }
 		body { overflow:hidden; }
@@ -11,15 +11,17 @@
 		button { margin-left:15px; }
 		a { margin-left:10px; }
 		iframe { margin-top:3px;padding-bottom:50px; }
+		.form-inline { font-size:18px; }
+		input { width:160px; }
 	</style>
 </head>
 <body>
 	<form class="form-inline" role="form" action="http://andrelion.github.io/about/" target="f">
 		<div class="form-group">
-			<input type="text" class="form-control" name="gid" id="gid" placeholder="Your Github User ID" />
+			http://<input type="text" class="form-control" name="gid" id="gid" placeholder="Your Github User ID" />.github.io/about
 		</div>
 		<button type="submit" class="btn btn-primary btn-large" id="preview">Preview</button>
-		<a href="https://github.com/AndreLion/about">Back to Github About Page Introduction</a>
+		<a href="https://github.com/AndreLion/about">Github About Page</a>
 	</form>
 	<iframe name="f" id="f" src="blank.html" ></iframe>
 	<script>
