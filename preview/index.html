@@ -30,6 +30,10 @@
 				document.getElementById('preview').click();
 			},800)
 		}
+		document.forms[0].onsubmit = function(){
+			var id = document.getElementById('gid').value;
+			history.pushState(true,{},'./?'+id);
+		}
 	</script>
 </body>
 </html>
