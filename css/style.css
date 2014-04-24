@@ -51,6 +51,8 @@ body { background:#fefefe url(../assets/bg.png) repeat 0 0 scroll; }
 #contribute .c15 { background-color:#44A340; }
 #contribute .ctop { background-color:#1E6823; }
 .namecard a.name { font-weight:bold;font-size:26px;display:inline-block;margin-bottom:15px; }
+.namecard .detail .share-trigger { font-size:18px;display:inline-block;margin-bottom:15px;color:#999; }
+.namecard .detail .share-trigger:hover { color:#2A6496;text-decoration:none; }
 .namecard .company { display:block; }
 .namecard .location { display:block; }
 .namecard .email { display:block; }
@@ -104,6 +106,14 @@ body { background:#fefefe url(../assets/bg.png) repeat 0 0 scroll; }
 .all-repos .panel-body { min-width:500px; }
 .all-repos .panel-body h4 { }
 .all-repos .panel-body a { display:inline-block;padding-right:15px; }
+
+.share { height:100%;width:100%;background-color:transparent;position:absolute;top:0;display:none;pointer-events:none; }
+.share .panel { width:30%;margin:120px auto 0 auto;box-shadow:5px 5px 15px rgba(0, 0, 0, 0.3);pointer-events:auto;}
+.share .close { float:right; }
+.share .panel-body { min-width:400px;text-align:center; }
+.share .panel-body a { display:inline-block;text-indent:-9999px;margin:20px 35px;background: url(../assets/twitter.png) 0 0 no-repeat;background-size:100%; }
+.share .panel-body .tweet-button { height:52px;width:64px; }
+.share .panel-body .weibo-button { height:52px;width:67px;background-image:url(../assets/weibo.png); }
 
 
 /*

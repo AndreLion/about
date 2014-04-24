@@ -356,10 +356,22 @@ $(function(){
 	$('body').on('click','.all-repos-trigger',function(){
 		$('.all-repos').toggle();
 	});
+	$('body').on('click','.share-trigger',function(ev){
+		ev.preventDefault();
+		$('.share').toggle();
+	});
 	$('body').on('click',function(ev){
 		var target = $(ev.target);
 		if(!target.closest('.all-repos').length && !target.hasClass('all-repos-trigger')){ 
 			$('.all-repos').hide();
 		}
+		if(!target.closest('.share').length && !target.hasClass('share-trigger')){ 
+			$('.share').hide();
+		}
 	});
+	var url = encodeURIComponent(location.href);
+	var hrefT = $('.tweet-button').attr('href');
+	$('.tweet-button').attr('href',hrefT+url);
+	var hrefW = $('.weibo-button').attr('href');
+	$('.weibo-button').attr('href',hrefW+url);
 });
