@@ -14,8 +14,8 @@ if(location.search.indexOf('?gid=') === 0 ){
 	preview = true;
 }else if(location.hostname.indexOf('github.io') !== -1){
 	username = location.hostname.split('.')[0];
-}else if(_CUSTOMSIZE_CONFIGURATION_.domain && _CUSTOMSIZE_CONFIGURATION_.domain[location.host]){
-	username = _CUSTOMSIZE_CONFIGURATION_.domain[location.host];
+}else if(_CUSTOMSIZE_CONFIGURATION_.domain && _CUSTOMSIZE_CONFIGURATION_.domain[location.hostname]){
+	username = _CUSTOMSIZE_CONFIGURATION_.domain[location.hostname];
 }else{
 	username = 'andrelion';
 }
