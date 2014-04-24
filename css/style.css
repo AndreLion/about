@@ -91,6 +91,7 @@ body { background:#fefefe url(../assets/bg.png) repeat 0 0 scroll; }
 .forkcard .fkd { font-size:24px;width:16px;overflow:hidden;-webkit-transform: rotate(45deg);transform: rotate(45deg); }
 .forkcard h4 { font-size:26px;color:#666; }
 .forkcard .name { font-size:20px;display:inline-block;padding:2px 15px 0 0; }
+.forkcard .repo-name { height: 215px;overflow: auto; }
 
 .aboutcard { line-height:26px; }
 
