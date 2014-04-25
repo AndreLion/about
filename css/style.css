@@ -39,7 +39,7 @@ body { background:#fefefe url(../assets/bg.png) repeat 0 0 scroll; }
 .namecard .detail>a { margin-left:20px;margin-bottom:5px; }
 .namecard .detail .glyphicon { color:#666; }
 .namecard .mask { position:absolute;top:0;left:0;margin:0;background-color:#FFF;width:100%;height:100%;opacity:0.6;border-radius:5px; }
-.namecard table { position:absolute;top:0;left:0;margin:0;border-spacing:1px;border-collapse:separate;border-radius:5px;width:500px; }
+.namecard table { position:absolute;top:0;left:0;margin:0;border-spacing:1px;border-collapse:separate;border-radius:5px;width:500px;max-width:none; }
 .namecard table tr {}
 .namecard table td { height:15px;padding:1px; }
 #contribute .c0 { background-color:#EEE; }
