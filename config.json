@@ -13,9 +13,7 @@ var _CUSTOMSIZE_CONFIGURATION_ = {
 	},
 	// Extend User Information
 	userinfo : {
-		'AndreLion' : {
-			'twitter' : 'AndreLion'
-		}
+		'AndreLion' : {}
 	},
 
 	// the repos you recommend. A thumbup icon will be shown in the repo card
